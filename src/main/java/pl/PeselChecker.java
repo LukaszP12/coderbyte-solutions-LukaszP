@@ -25,22 +25,16 @@ public class PeselChecker {
         if (monthInt >= 81 && monthInt <= 92) { // do 1899
             String extractedYear = "18" + year;
             int extractedYearInt = Integer.parseInt(extractedYear);
-            // String month - bez zmian
             LocalDate localDate = LocalDate.of(extractedYearInt, monthInt, dayInt);
-            System.out.println("localDate: " + localDate);
 
             between = YEARS.between(LocalDate.now(), localDate);
-            System.out.println("between: " + Math.abs(between));
 
         } else if (monthInt >= 1 && monthInt <= 12) { // do 1999
             String extractedYear = "19" + year;
             int extractedYearInt = Integer.parseInt(extractedYear);
-            // String month - bez zmian
             LocalDate localDate = LocalDate.of(extractedYearInt, monthInt, dayInt);
-            System.out.println("localDate: " + localDate);
 
             between = YEARS.between(LocalDate.now(), localDate);
-            System.out.println("between: " + Math.abs(between));
         } else if (monthInt >= 21 && monthInt <= 32) { // do 2099
             String extractedYear = "20" + year;
             int extractedYearInt = Integer.parseInt(extractedYear);
@@ -48,7 +42,6 @@ public class PeselChecker {
             LocalDate localDate = LocalDate.of(extractedYearInt, extractedMonthInt, dayInt);
 
             between = YEARS.between(LocalDate.now(), localDate);
-            System.out.println("localDate: " + localDate);
         } else if (monthInt >= 41 && monthInt <= 52) {
             String extractedYear = "21" + year;
             int extractedYearInt = Integer.parseInt(extractedYear);
@@ -56,7 +49,6 @@ public class PeselChecker {
             LocalDate localDate = LocalDate.of(extractedYearInt, extractedMonthInt, dayInt);
 
             between = YEARS.between(LocalDate.now(), localDate);
-            System.out.println("localDate: " + localDate);
 
         } else if (monthInt >= 61 && monthInt <= 72) {
             String extractedYear = "22" + year;
@@ -65,12 +57,11 @@ public class PeselChecker {
             LocalDate localDate = LocalDate.of(extractedYearInt, extractedMonthInt, dayInt);
 
             between = YEARS.between(LocalDate.now(), localDate);
-            System.out.println("localDate: " + localDate);
         }
         return Math.abs(between) > 18;
     }
 
-    public static void main(String[] args) throws ParseException, InvalidPeselException {
+    public static void main(String[] args)  {
         System.out.println(isOverAge("950101"));
         System.out.println(isOverAge("841229"));
         System.out.println(isOverAge("043229"));
